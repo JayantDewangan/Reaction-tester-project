@@ -9,6 +9,18 @@
 
 body{
     background-color: #414141;
+    display: grid;
+    overflow: hidden;
+}
+
+#head{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    height: 120px;
+    z-index: 10;
 }
 
 #heading{
@@ -32,7 +44,7 @@ body{
     background-color: red;
     margin: 15px;
     border-radius: 5px;
-    position: relative;
+    position: absolute;
 }
 
 #shape:hover{
