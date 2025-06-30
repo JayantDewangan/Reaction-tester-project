@@ -12,16 +12,18 @@ function getRandomColor(){
 }
 
 function move(){
-    let left;
-    let top;
-    let wh;
-    left = Math.random()*300;
-    top = Math.random()*300;
-    wh = ((Math.random()*400)+100);
+    const headHeight = 250;
+    const boxSize = ((Math.random()*280) + 100);
+    const maxLeft = window.innerWidth - boxSize; 
+    const maxTop = window.innerHeight - boxSize - headHeight;
+
+    const left = Math.random() * maxLeft;
+    const top = headHeight + Math.random() * maxTop;
+
     shape.style.left = `${left}px`;
     shape.style.top = `${top}px`;
-    shape.style.width = `${wh}px`;
-    shape.style.height = `${wh}px`;
+    shape.style.width = `${boxSize}px`;
+    shape.style.height = `${boxSize}px`;
     shape.style.display = 'block';
     shape.style.backgroundColor = getRandomColor();
     start = new Date().getTime();
@@ -31,6 +33,6 @@ shape.addEventListener('click',()=>{
     shape.style.display = 'none';
     let end = new Date().getTime();
     let timeTaken = (end - start)/1000;
-    alert(timeTaken);
+    alert(`${timeTaken} seconds`);
     move();
 }) 
